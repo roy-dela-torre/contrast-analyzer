@@ -1,0 +1,185 @@
+/* Sample CSS for testing contrast analyzer */
+
+/* Good contrast examples */
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark-theme {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.primary-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+}
+
+/* Poor contrast examples - These will fail WCAG */
+.light-on-white {
+    background-color: #ffffff;
+    color: #d3d3d3; /* Fails - too light */
+}
+
+.yellow-warning {
+    background-color: #ffeb3b;
+    color: #ffffff; /* Fails - poor contrast */
+}
+
+.purple-text {
+    background-color: #6a0dad;
+    color: #9370db; /* Fails - similar colors */
+}
+
+.gray-on-gray {
+    background-color: #808080;
+    color: #a9a9a9; /* Fails - not enough difference */
+}
+
+/* Borderline cases */
+.medium-gray {
+    background-color: #ffffff;
+    color: #767676; /* 4.54:1 - just passes AA for large text */
+}
+
+.dark-blue {
+    background-color: #003366;
+    color: #6699cc; /* Borderline */
+}
+
+/* More good examples */
+.success {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.danger {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.info {
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+/* Text on images - often problematic */
+.hero-text {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.overlay-light {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333333;
+}
+
+/* Link colors */
+a.link-primary {
+    color: #0066cc; /* Good on white */
+}
+
+a.link-secondary {
+    color: #6c757d; /* Borderline */
+}
+
+a.link-light {
+    color: #f8f9fa; /* Only good on dark backgrounds */
+    background-color: #212529;
+}
+
+/* Navigation examples */
+.navbar-dark {
+    background-color: #212529;
+    color: #ffffff;
+}
+
+.navbar-light {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Form elements */
+input.form-control {
+    background-color: #ffffff;
+    color: #495057;
+    border: 1px solid #ced4da;
+}
+
+input.form-control:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+}
+
+/* Alert variations */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404; /* Should pass */
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Custom theme colors */
+.theme-purple {
+    background-color: #6f42c1;
+    color: #ffffff;
+}
+
+.theme-pink {
+    background-color: #e83e8c;
+    color: #ffffff;
+}
+
+.theme-orange {
+    background-color: #fd7e14;
+    color: #ffffff;
+}
+
+/* Accessibility issues to catch */
+.invisible-text {
+    background-color: #ffffff;
+    color: #fefefe; /* Almost invisible - major fail */
+}
+
+.low-contrast-gray {
+    background-color: #f5f5f5;
+    color: #cccccc; /* Very poor */
+}
+
+.pastel-nightmare {
+    background-color: #ffcccc;
+    color: #ffeeee; /* Terrible */
+}
+
+/* Good practices */
+.high-contrast {
+    background-color: #000000;
+    color: #ffffff; /* Perfect 21:1 */
+}
+
+.accessible-blue {
+    background-color: #0056b3;
+    color: #ffffff; /* Good contrast */
+}
+
+.accessible-green {
+    background-color: #28a745;
+    color: #ffffff; /* Good contrast */
+}
