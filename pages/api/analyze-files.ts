@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as cheerio from 'cheerio';
+import type { Element } from 'domhandler';
 import chroma from 'chroma-js';
 import cssParser from 'css';
 import { ColorPair, ContrastReport } from '@/utils/colorContrast';
@@ -86,7 +87,7 @@ export default async function handler(
     };
 
     // Helper to get CSS rule for element
-    const getStyleForElement = ($element: cheerio.Cheerio<cheerio.Element>) => {
+    const getStyleForElement = ($element: cheerio.Cheerio<Element>) => {
       let styles: { color?: string; background?: string } = {};
       
       // Check by ID
