@@ -121,11 +121,12 @@ export default async function handler(
 
     $('*').each((_, element) => {
       const $element = $(element);
-      
+
       const text = $element.text().trim();
       if (!text || text.length === 0) return;
-      
-      const tagName = element.name.toLowerCase();
+
+      if (element.type !== 'tag') return;
+      const tagName = (element as Element).name.toLowerCase();
       if (['script', 'style', 'meta', 'link', 'noscript'].includes(tagName)) return;
 
       let foreground: string | null = null;
@@ -140,7 +141,7 @@ export default async function handler(
       if (bgMatch) background = extractColor(bgMatch[1]);
 
       // Get CSS rule styles
-      const cssStyles = getStyleForElement($element);
+      const cssStyles = getStyleForElement($element as cheerio.Cheerio<Element>);
       if (!foreground && cssStyles.color) {
         foreground = extractColor(cssStyles.color);
       }

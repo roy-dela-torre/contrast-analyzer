@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
+import type { Element } from 'domhandler';
 import chroma from 'chroma-js';
 import { ColorPair, ContrastReport } from '@/utils/colorContrast';
 
@@ -74,7 +75,8 @@ export default async function handler(
       if (!text || text.length === 0) return;
       
       // Skip script, style, meta tags
-      const tagName = element.name.toLowerCase();
+      if (element.type !== 'tag') return;
+      const tagName = (element as Element).name.toLowerCase();
       if (['script', 'style', 'meta', 'link', 'noscript'].includes(tagName)) return;
 
       // Get inline styles
